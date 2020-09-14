@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Observable, Observer } from 'rxjs';
-import { map, filter } from 'rxjs/operators'
+import { map, filter } from 'rxjs/operators';
 
 import { RedisClient } from './redis.module';
 
@@ -14,7 +14,9 @@ export class RedisSubscribeService {
         this.redisClient.subscribe(eventName);
 
         return new Observable((observer: Observer<any>) =>
-            this.redisClient.on('message', (channel, message) => observer.next({ channel, message })),
+            this.redisClient.on('message', (channel, message) =>
+                observer.next({ channel, message }),
+            ),
         ).pipe(
             filter(({ channel }) => channel === eventName),
             map(({ message }) => JSON.parse(message)),

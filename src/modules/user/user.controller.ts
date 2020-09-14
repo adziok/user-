@@ -11,7 +11,7 @@ export class UserController {
         private readonly userService: UserService,
         private readonly redisSubscribeService: RedisSubscribeService,
     ) {
-        this.createUser()
+        this.createUser();
     }
 
     @Get()
@@ -20,7 +20,10 @@ export class UserController {
     }
 
     public createUser() {
-        this.redisSubscribeService.fromEvent('create-user')
-            .subscribe((newUserDto: NewUserDto) => this.userService.createUser(newUserDto))
+        this.redisSubscribeService
+            .fromEvent('create-user')
+            .subscribe((newUserDto: NewUserDto) =>
+                this.userService.createUser(newUserDto),
+            );
     }
 }

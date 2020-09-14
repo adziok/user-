@@ -6,7 +6,7 @@ import { ConfigService } from './../config/config.service';
 
 export type RedisClient = Redis.Redis;
 
-export const REDIS_CLIENT_TOKEN = 'REDIS_CLIENT'
+export const REDIS_CLIENT_TOKEN = 'REDIS_CLIENT';
 
 @Global()
 @Module({
@@ -21,7 +21,7 @@ export const REDIS_CLIENT_TOKEN = 'REDIS_CLIENT'
             inject: [ConfigService],
             provide: REDIS_CLIENT_TOKEN,
         },
-        RedisSubscribeService
+        RedisSubscribeService,
     ],
     exports: [RedisSubscribeService],
 })

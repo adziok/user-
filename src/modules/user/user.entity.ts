@@ -14,4 +14,3 @@ export class User {
     @Column({ length: 255 })
     address: string;
 }
-

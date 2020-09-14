@@ -6,11 +6,6 @@ import { ConfigModule } from './../shared/modules/config/config.module';
 import { UserModule } from '../modules/user/user.module';
 
 @Module({
-    imports: [
-        ConfigModule,
-        RedisModule,
-        DatabaseModule,
-        UserModule,
-    ],
+    imports: [ConfigModule, RedisModule, DatabaseModule, UserModule],
 })
 export class CoreModule {}
