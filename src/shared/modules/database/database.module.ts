@@ -25,6 +25,5 @@ import { Connection } from 'typeorm';
 })
 export class DatabaseModule {
     constructor(private connection: Connection) {
-        this.connection.query("CREATE DATABASE testdb IF NOT EXISTS");
     }
 }

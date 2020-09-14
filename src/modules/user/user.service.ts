@@ -17,6 +17,12 @@ export class UserService {
     }
 
     public createUser(newUserDto: NewUserDto) {
-        return this.userRepository.create(newUserDto)
+        console.log(newUserDto);
+        return this.userRepository.insert(newUserDto)
+            .then((result) => {
+                console.log(result)
+            }).catch((err) => {
+                console.log(err)
+            });
     }
 }

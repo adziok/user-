@@ -9,10 +9,9 @@ export class User {
     name: string;
 
     @Column({ length: 255 })
-    surrname: string;
+    surename: string;
 
     @Column({ length: 255 })
     address: string;
 }
 
-export const USER_ENTITY_TOKEN = 'USER_ENTITY';

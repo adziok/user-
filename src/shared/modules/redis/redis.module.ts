@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, Global } from '@nestjs/common';
 import Redis from 'ioredis';
 
 import { RedisSubscribeService } from './redis-subscribe.service';
@@ -8,6 +8,7 @@ export type RedisClient = Redis.Redis;
 
 export const REDIS_CLIENT_TOKEN = 'REDIS_CLIENT'
 
+@Global()
 @Module({
     providers: [
         {

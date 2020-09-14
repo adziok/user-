@@ -10,7 +10,9 @@ export class UserController {
     constructor(
         private readonly userService: UserService,
         private readonly redisSubscribeService: RedisSubscribeService,
-    ) {}
+    ) {
+        this.createUser()
+    }
 
     @Get()
     public getUsers(@Query() q: GetUsersQuery) {
